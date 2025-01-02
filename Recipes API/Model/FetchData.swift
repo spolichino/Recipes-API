@@ -1,8 +1,47 @@
 //
 //  FetchData.swift
-//  Recipes API
+//  NewsAPI
 //
-//  Created by Samuel Polichino (student LM) on 12/19/24.
+//  Created by Samuel Polichino (student LM) on 12/13/24.
 //
 
 import Foundation
+
+struct FetchData{
+    
+    var response: Response = Response()
+   
+    mutating func getData() async{
+        let URLString = "https://newsapi.org/v2/everything?q=tesla&language=en&from=2024-12-13&sortBy=publishedAt&apiKey=a8b788a248074511a6f23cb5c4053573"
+        
+        guard let url = URL(string: URLString) else {return}
+        
+        //underscore is a placeholder for a variable that you're not going to identify
+        guard let (data, _) = try? await URLSession.shared.data(from: url) else {return}
+        
+        guard let r = try? JSONDecoder().decode(Response.self, from: data) else {return}
+       
+        response = r
+        
+    }
+    
+}
+
+struct Response: Codable{
+    var status: String = "Loading..."
+    var totalResults: Int = 0
+    var articles: [Article] = []
+    
+}
+
+struct Article: Codable{
+    var title: String?
+    var description: String?
+    var author: String?
+    var url: String?
+    var urlToImage: URL?
+}
+
+extension Article: Identifiable{
+    var id: String {title ?? " "}
+}
