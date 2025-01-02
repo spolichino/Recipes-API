@@ -12,7 +12,7 @@ struct FetchData{
     var response: Response = Response()
    
     mutating func getData() async{
-        let URLString = "https://newsapi.org/v2/everything?q=tesla&language=en&from=2024-12-13&sortBy=publishedAt&apiKey=a8b788a248074511a6f23cb5c4053573"
+        let URLString = "https:www.themealdb.com/api/json/v1/1/filter.php?i=chicken"
         
         guard let url = URL(string: URLString) else {return}
         
@@ -27,14 +27,14 @@ struct FetchData{
     
 }
 
-struct Response: Codable{
-    var status: String = "Loading..."
-    var totalResults: Int = 0
-    var articles: [Article] = []
-    
-}
+//struct Response: Codable{
+//    var status: String = "Loading..."
+//    var totalResults: Int = 0
+//    var articles: [Article] = []
+//    
+//}
 
-struct Article: Codable{
+struct Recipe: Codable{
     var title: String?
     var description: String?
     var author: String?
