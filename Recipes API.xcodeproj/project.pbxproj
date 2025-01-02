@@ -28,7 +28,7 @@
 		BEAC00662D120CE200A90547 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BEAC00682D120CE400A90547 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEAC006B2D120CE400A90547 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BEB04A542D2727C1007D669A /* RecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeView.swift; path = Views/RecipeView.swift; sourceTree = "<group>"; };
+		BEB04A542D2727C1007D669A /* RecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +45,7 @@
 		BE8500B02D14973900744A13 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BEB04A542D2727C1007D669A /* RecipeView.swift */,
 				BEAC00662D120CE200A90547 /* ContentView.swift */,
 				BE8500B52D14975F00744A13 /* WebView.swift */,
 				BE8500B92D14978400744A13 /* WebViewContainer.swift */,
@@ -80,7 +81,6 @@
 		BEAC00632D120CE200A90547 /* Recipes API */ = {
 			isa = PBXGroup;
 			children = (
-				BEB04A542D2727C1007D669A /* RecipeView.swift */,
 				BE8500B22D14974A00744A13 /* Model */,
 				BE8500B02D14973900744A13 /* Views */,
 				BEAC00642D120CE200A90547 /* Recipes_APIApp.swift */,
