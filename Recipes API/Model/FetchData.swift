@@ -42,6 +42,6 @@ struct Recipe: Codable{
     var urlToImage: URL?
 }
 
-extension Article: Identifiable{
+extension Recipe: Identifiable{
     var id: String {title ?? " "}
 }
