@@ -9,25 +9,28 @@ import SwiftUI
 
 struct RecipeView: View {
    
-    @Binding var meal: Recipe
+    @Binding var meal: Meal
     
     @State var insideData: FetchRecipeData = FetchRecipeData()
 
     var body: some View {
         
-        ScrollView{
-            ForEach(insideData.response.meals){ recipe in
-                VStack(alignment: .leading) {
-                    
-                    Text(recipe.idMeal ?? " ")
-                        .bold()
-                        .padding(.horizontal)
-                    Spacer()
-                }
-            }
-        }
-        .task {
-            await insideData.getData(url: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\($meal.idMeal)")
+//        ScrollView{
+//            ForEach(insideData.response.meals){ recipe in
+//                VStack(alignment: .leading) {
+//                    
+//                    Text(recipe.idMeal ?? " ")
+//                        .bold()
+//                        .padding(.horizontal)
+//                    Spacer()
+//                }
+//            }
+//        }
+        
+        VStack{
+            Text(insideData.response.strMeal)
+        }.task {
+            await insideData.getData(url: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(meal.idMeal)")
             
         }
     }
@@ -36,5 +39,5 @@ struct RecipeView: View {
     
 
 #Preview {
-    RecipeView(meal: .constant(Recipe()))
+    RecipeView(meal: .constant(Meal()))
 }

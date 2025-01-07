@@ -17,21 +17,38 @@ struct RecipeListView: View {
     @Binding var recipeURL: String
     
     var body: some View {
-        ScrollView{
-            ForEach(outsideData.response.meals){ meal in
-                VStack(alignment: .leading) {
-                    
+        //        ScrollView{
+        //            ForEach(outsideData.response.meals){ meal in
+        //                VStack(alignment: .leading) {
+        //
+        //                    Text(meal.strMeal ?? " ")
+        //                        .bold()
+        //                        .padding(.horizontal)
+        //
+        //                    Spacer()
+        //                }
+        //            }
+        //        }
+        //            .task{
+        //                await outsideData.getData()
+        //            }
+        
+        NavigationView {
+            
+            
+            
+            List($outsideData.response.meals) { $meal in
+                NavigationLink {
+                    RecipeView(meal: $meal)
+                } label: {
                     Text(meal.strMeal ?? " ")
-                        .bold()
-                        .padding(.horizontal)
-                    
-                    Spacer()
                 }
             }
-        }
-            .task{
+            .navigationTitle("Chicken Meals")
+            .task {
                 await outsideData.getData()
             }
+        }
         
         
     }
