@@ -17,25 +17,8 @@ struct RecipeListView: View {
     @Binding var recipeURL: String
     
     var body: some View {
-        //        ScrollView{
-        //            ForEach(outsideData.response.meals){ meal in
-        //                VStack(alignment: .leading) {
-        //
-        //                    Text(meal.strMeal ?? " ")
-        //                        .bold()
-        //                        .padding(.horizontal)
-        //
-        //                    Spacer()
-        //                }
-        //            }
-        //        }
-        //            .task{
-        //                await outsideData.getData()
-        //            }
         
         NavigationView {
-            
-            
             
             List($outsideData.response.meals) { $meal in
                 NavigationLink {
@@ -44,7 +27,7 @@ struct RecipeListView: View {
                     Text(meal.strMeal ?? " ")
                 }
             }
-            .navigationTitle("Chicken Meals")
+            .navigationTitle("Chicken")
             .task {
                 await outsideData.getData()
             }
