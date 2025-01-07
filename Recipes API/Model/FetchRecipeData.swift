@@ -38,7 +38,7 @@ struct RecipeResponse: Codable{
 
 struct Recipe: Codable{
     var idMeal: String = ""
-    var strMeal: String = ""
+    var strMeal: String = "53016"
     var strCategory: String = ""
     var strArea: String = ""
 }

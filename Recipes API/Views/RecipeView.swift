@@ -15,7 +15,6 @@ struct RecipeView: View {
 
     var body: some View {
         
-        
         ScrollView{
             ForEach(insideData.response.meals){ recipe in
                 VStack(alignment: .leading) {
