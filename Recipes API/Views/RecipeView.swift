@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeView: View {
    
-    @Binding var meal: Meal
+    @Binding var mealId: Int
     
     @State var insideData: FetchRecipeData = FetchRecipeData()
 
@@ -18,7 +18,7 @@ struct RecipeView: View {
         VStack{
             Text(insideData.response.strMeal)
         }.task {
-            await insideData.getData(url: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(meal.idMeal)")
+            await insideData.getData(url: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(mealId)")
             
         }
     }
@@ -27,5 +27,5 @@ struct RecipeView: View {
     
 
 #Preview {
-    RecipeView(meal: .constant(Meal()))
+    RecipeView(mealId: .constant(0))
 }
