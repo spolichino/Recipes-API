@@ -17,10 +17,10 @@ struct RecipeView: View {
     var body: some View {
         
         
-        ForEach(insideData.response.meals){ meal in
-            VStack{
-                Text("Hello World")
-            }
+        List(insideData.response.meals){ meal in
+
+            Text(meal.idMeal ?? " ")
+            
         }
         .task {
             await insideData.getData(idMeal: idMeal)
