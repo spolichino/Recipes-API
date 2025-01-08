@@ -10,13 +10,17 @@ import Foundation
 struct FetchRecipeData{
     
     var response: Recipe = Recipe()
+    
+    var URLbase: String = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="
+    
+    var idMeal: String
+    
+    
    
-    mutating func getData(url: String) async{
+    mutating func getData() async{
         
         
-//        let URLString = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(FetchData().response.meals[mealIndex].idMeal)"
-        
-        let URLString = url
+        let URLString = URLbase + idMeal
 
         
         guard let url = URL(string: URLString) else {return}
@@ -38,10 +42,10 @@ struct Recipe: Codable{
     var strMeal: String = ""
     var strCategory: String = ""
     var strArea: String = ""
+    var strIngredient1: String = ""
 }
 
 
 extension Recipe: Identifiable{
     var id: String {idMeal ?? " "}
 }
-

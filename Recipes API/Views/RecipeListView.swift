@@ -22,7 +22,7 @@ struct RecipeListView: View {
             
             List($outsideData.response.meals) { $meal in
                 NavigationLink {
-                    RecipeView(mealId: $meal.idMeal)
+                    RecipeView(idMeal: $meal.idMeal)
                 } label: {
                     Text(meal.strMeal ?? " ")
                 }
