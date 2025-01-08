@@ -9,15 +9,13 @@ import Foundation
 
 struct FetchRecipeData{
     
-    var response: Recipe = Recipe()
+    var response: RecipeResponse = RecipeResponse()
     
     var URLbase: String = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="
     
-    var idMeal: String
-    
     
    
-    mutating func getData() async{
+    mutating func getData(idMeal: String) async{
         
         
         let URLString = URLbase + idMeal
@@ -28,7 +26,7 @@ struct FetchRecipeData{
         //underscore is a placeholder for a variable that you're not going to identify
         guard let (data, _) = try? await URLSession.shared.data(from: url) else {return}
         
-        guard let r = try? JSONDecoder().decode(Recipe.self, from: data) else {return}
+        guard let r = try? JSONDecoder().decode(RecipeResponse.self, from: data) else {return}
        
         response = r
         
@@ -36,6 +34,9 @@ struct FetchRecipeData{
     
 }
 
+struct RecipeResponse: Codable{
+    var meals: [Recipe] = []
+}
 
 struct Recipe: Codable{
     var idMeal: String = ""

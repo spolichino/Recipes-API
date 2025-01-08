@@ -11,15 +11,19 @@ struct RecipeView: View {
    
     @Binding var idMeal: String
     
-    @State var insideData: FetchRecipeData = FetchRecipeData(idMeal: idMeal)
+    @State var insideData: FetchRecipeData = FetchRecipeData()
     
 
     var body: some View {
         
-        VStack{
-            Text(insideData.response.strIngredient1)
-        }.task {
-            await insideData.getData()
+        
+        ForEach(insideData.response.meals){ meal in
+            VStack{
+                Text("Hello World")
+            }
+        }
+        .task {
+            await insideData.getData(idMeal: idMeal)
         }
     }
         

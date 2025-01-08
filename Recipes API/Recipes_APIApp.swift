@@ -11,7 +11,7 @@ import SwiftUI
 struct Recipes_APIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RecipeListView(viewState: .constant(.recipeList), recipeURL: .constant("https://google.com/"))
         }
     }
 }
