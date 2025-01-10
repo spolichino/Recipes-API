@@ -27,7 +27,7 @@ struct RecipeListView: View {
                     Text(meal.strMeal ?? " ")
                 }
             }
-            .navigationTitle("Chicken")
+            .navigationTitle("Chicken Recipes")
             .task {
                 await outsideData.getData()
             }

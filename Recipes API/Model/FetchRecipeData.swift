@@ -19,18 +19,28 @@ struct FetchRecipeData{
         
         
         let URLString = URLbase + idMeal
-
+        print(URLString)
         
         guard let url = URL(string: URLString) else {return}
         
         //underscore is a placeholder for a variable that you're not going to identify
-        guard let (data, _) = try? await URLSession.shared.data(from: url) else {return}
+        guard let (data, _) = try? await URLSession.shared.data(from: url) else {
+            print("failed to get data")
+            return
+        }
+        let output = String(data: data, encoding: .utf8)
+        print(output)
         
-        guard let r = try? JSONDecoder().decode(RecipeResponse.self, from: data) else {return}
+        guard let r = try? JSONDecoder().decode(RecipeResponse.self, from: data) else {
+            print("failed to parse data")
+            return
+        }
        
         response = r
         
     }
+    
+    
     
 }
 
@@ -45,7 +55,6 @@ struct Recipe: Codable{
     var strArea: String = ""
     var strInstructions: String = ""
     var strMealThumb: String = ""
-    var strTags: String = ""
     var strYoutube: String = ""
     var strIngredient1: String = ""
     var strIngredient2: String = ""
@@ -61,12 +70,12 @@ struct Recipe: Codable{
     var strIngredient12: String = ""
     var strIngredient13: String = ""
     var strIngredient14: String = ""
-    var strIngredient15: String = ""
-    var strIngredient16: String = ""
-    var strIngredient17: String = ""
-    var strIngredient18: String = ""
-    var strIngredient19: String = ""
-    var strIngredient20: String = ""
+    var strIngredient15: String? = ""
+    var strIngredient16: String? = ""
+    var strIngredient17: String? = ""
+    var strIngredient18: String? = ""
+    var strIngredient19: String? = ""
+    var strIngredient20: String? = ""
     var strMeasure1: String = ""
     var strMeasure2: String = ""
     var strMeasure3: String = ""
@@ -82,12 +91,12 @@ struct Recipe: Codable{
     var strMeasure13: String = ""
     var strMeasure14: String = ""
     var strMeasure15: String = ""
-    var strMeasure16: String = ""
-    var strMeasure17: String = ""
-    var strMeasure18: String = ""
-    var strMeasure19: String = ""
-    var strMeasure20: String = ""
-    var strSource: String = ""
+    var strMeasure16: String? = ""
+    var strMeasure17: String? = ""
+    var strMeasure18: String? = ""
+    var strMeasure19: String? = ""
+    var strMeasure20: String? = ""
+    var strSource: String? = ""
 }
 
 
