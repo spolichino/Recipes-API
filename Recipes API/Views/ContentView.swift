@@ -11,8 +11,6 @@ enum ViewState{
     case recipeList, webView
 }
 
-
-
 struct ContentView: View {
   
    

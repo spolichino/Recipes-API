@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 struct Constants{
-    static let titleFont: Font = Font(UIFont(name: "Helveitca-Neue", size: 30) ?? UIFont.systemFont(ofSize: 30))
+    static let titleFont: Font = Font(UIFont(name: "Helveitca-Neue", size: 35) ?? UIFont.systemFont(ofSize: 30))
     
-    static let textFont: Font = Font(UIFont(name: "Helveitca-Neue", size: 15) ?? UIFont.systemFont(ofSize: 15))
+    static let textFont: Font = Font(UIFont(name: "Helveitca-Neue", size: 22) ?? UIFont.systemFont(ofSize: 15))
     
-    static let backgroundColor = Color(Color(red: 240/255, green: 177/255, blue: 117/255))
+    static let backgroundColor = Color(Color(red: 245/255, green: 214/255, blue: 142/255))
 }
 
 extension Color{

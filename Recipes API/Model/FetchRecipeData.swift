@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct FetchRecipeData{
     
@@ -37,6 +38,8 @@ struct FetchRecipeData{
         }
        
         response = r
+        
+        
         
     }
     
@@ -90,7 +93,7 @@ struct Recipe: Codable{
     var strMeasure12: String = ""
     var strMeasure13: String = ""
     var strMeasure14: String = ""
-    var strMeasure15: String = ""
+    var strMeasure15: String? = ""
     var strMeasure16: String? = ""
     var strMeasure17: String? = ""
     var strMeasure18: String? = ""

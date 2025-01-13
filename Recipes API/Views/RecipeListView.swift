@@ -18,29 +18,33 @@ struct RecipeListView: View {
     
     var body: some View {
         
-        ZStack {
-            
-            Rectangle()
-                .foregroundColor(Constants.backgroundColor)
-            
-            
+        
             NavigationView {
                 
                 List($outsideData.response.meals) { $meal in
                     NavigationLink {
                         RecipeView(idMeal: $meal.idMeal)
                     } label: {
-                        Text(meal.strMeal)
+                        
+                        HStack{
+                            Text(meal.strMeal)
+                            
+                            Spacer()
+                            
+                            Image(meal.strMeal)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                            
+                        }
                     }
                 }
-                .navigationTitle("Chicken Recipes")
                 .task {
                     await outsideData.getData()
                 }
+                .navigationTitle("Chicken Recipes")
+                .font(Constants.textFont)
             }
-        }
-        
-        
+            
     }
 }
 
