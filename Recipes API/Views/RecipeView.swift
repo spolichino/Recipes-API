@@ -13,11 +13,16 @@ struct RecipeView: View {
     
     @State var insideData: FetchRecipeData = FetchRecipeData()
     
+    func getImageURL(imageLink: String) -> URL?{
+        guard let url = URL(string: imageLink) else{return URL(string: "https://google.com/")}
+        return url
+    }
+    
     var body: some View {
         
         //make this a scroll view, except watch out that makes it so no text appears
         
-        ZStack {
+        VStack {
             
             
             
@@ -32,10 +37,21 @@ struct RecipeView: View {
                         .background(Color(Constants.backgroundColor))
                         .cornerRadius(20)
                     // Image
-                    Image(meal.strMeal)
-                        .resizable()
-                        .scaledToFit()
-                        .padding()
+                    AsyncImage(url: getImageURL(imageLink: meal.strMealThumb)){
+                        phase in
+                        switch phase{
+                        case.empty:
+                            ProgressView()
+                        case.success(let image): image.resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 325)
+                        case.failure(let error):
+                            Image("fnf")
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 400)
+                        }
+                    }
+                    .padding()
                     // Ingredients/Measure
                     Text("Ingredients")
                         .font(Constants.titleFont)
@@ -43,7 +59,6 @@ struct RecipeView: View {
                         .padding()
                         .background(Color(Constants.backgroundColor))
                         .cornerRadius(20)
-                    
                     
                     HStack{
                         

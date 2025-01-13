@@ -30,6 +30,8 @@ struct FetchData{
         
     }
     
+    
+    
 }
 
 struct Response: Codable{
@@ -41,6 +43,7 @@ struct Meal: Codable{
     var strMealThumb: String = ""
     var idMeal: String = ""
 }
+
 
 extension Meal: Identifiable{
     var id: String {idMeal ?? " "}
